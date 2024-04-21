@@ -5,6 +5,17 @@ function quickSort(array, left, right) {
 }
 
 function partition(array, pivot, left, right) {
+    let pivotValue = array[pivot];
+  let partitionIndex = left;
+
+  for (let i = left; i < right; i++) {
+    if (array[i] < pivotValue) {
+      swap(array, i, partitionIndex);
+      partitionIndex++;
+    }
+  }
+  swap(array, right, partitionIndex);
+  return partitionIndex;
   
 }
 
