@@ -1,6 +1,20 @@
 const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
 
 function quickSort(array, left, right) {
+    const len = array.length;
+    let pivot;
+    let partionIndex;
+
+    if(left < right) {
+        pivot = right;
+        partionIndex = partition(array, pivot, left, right)
+
+        // Sort left and right
+        quickSort(array, left, partionIndex - 1);
+        quickSort(array, partionIndex + 1, right);
+    }
+
+    return array;
  
 }
 
