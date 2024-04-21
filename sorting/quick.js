@@ -6,20 +6,23 @@ function quickSort(array, left, right) {
 
 function partition(array, pivot, left, right) {
     let pivotValue = array[pivot];
-  let partitionIndex = left;
+    let partitionIndex = left;
 
-  for (let i = left; i < right; i++) {
-    if (array[i] < pivotValue) {
-      swap(array, i, partitionIndex);
-      partitionIndex++;
+    for (let i = left; i < right; i++) {
+        if (array[i] < pivotValue) {
+        swap(array, i, partitionIndex);
+        partitionIndex++;
+        }
     }
-  }
-  swap(array, right, partitionIndex);
-  return partitionIndex;
+    swap(array, right, partitionIndex);
+    return partitionIndex;
   
 }
 
 function swap(array, firstIndex, secondIndex) {
+    var temp = array[firstIndex];
+    array[firstIndex] = array[secondIndex];
+    array[secondIndex] = temp;
   
 }
 
