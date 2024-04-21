@@ -5,6 +5,10 @@ function mergeSort (array) {
     return array
   }
   // Split Array in into right and left
+  const length = array.length;
+  const middle = Math.floor(length / 2);
+  const left = array.slice(0, middle)
+  const right = array.slice(middle)
 
   return merge(
     mergeSort(left),
