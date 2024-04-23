@@ -187,7 +187,7 @@ class Node {
   JSON.stringify(traverse(tree.root));
   console.log(tree.lookup(20));
   console.log(tree.breathFirstSearch())
-  console.log(tree.breathFirstSearchRecursive([this.root], []))
+  console.log(tree.breathFirstSearchRecursive([tree.root], []))
   //     9
   //  4     20
   //1  6  15  170
