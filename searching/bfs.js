@@ -155,6 +155,24 @@ class Node {
 
       return list;
     }
+
+    breathFirstSearchRecursive(queue, list) {
+      if (!queue.length) {
+        return list;
+      }
+      const currentNode = queue.shift();
+      list.push(currentNode.value);
+      
+      if (currentNode.left) {
+        queue.push(currentNode.left);
+      }
+      if (currentNode.right) {
+        queue.push(currentNode.right);
+      }
+      
+      return this.breathFirstSearchRecursive(queue, list);
+
+    }
   }
   
   const tree = new BinarySearchTree();
@@ -169,6 +187,7 @@ class Node {
   JSON.stringify(traverse(tree.root));
   console.log(tree.lookup(20));
   console.log(tree.breathFirstSearch())
+  console.log(tree.breathFirstSearchRecursive([this.root], []))
   //     9
   //  4     20
   //1  6  15  170
