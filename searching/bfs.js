@@ -132,6 +132,29 @@ class Node {
         }
       }
     }
+
+    breathFirstSearch() {
+      let currentNode = this.root;
+      let list = [];
+      let queue = [];
+
+      queue.push(currentNode);
+
+      while(queue.length > 0) {
+        currentNode = queue.shift();
+        list.push(currentNode.value);
+
+        if(currentNode.left) {
+          queue.push(currentNode.left);
+        }
+
+        if(currentNode.right) {
+          queue.push(currentNode.right);
+        }
+      }
+
+      return list;
+    }
   }
   
   const tree = new BinarySearchTree();
@@ -145,6 +168,7 @@ class Node {
   tree.remove(170);
   JSON.stringify(traverse(tree.root));
   console.log(tree.lookup(20));
+  console.log(tree.breathFirstSearch())
   //     9
   //  4     20
   //1  6  15  170
