@@ -136,6 +136,14 @@ class Node {
     DFSInOrder() {
       return traverseInOrder(this.root, [])
     }
+
+    DFSPreOrder() {
+      return traversePreOrder(this.root, [])
+    } 
+
+    DFSPostOrder() {
+      return traversePostOrder(this.root, [])
+    }
   }
 
   function traverseInOrder(node, list) {
@@ -146,6 +154,28 @@ class Node {
     if(node.right) {
       traverseInOrder(node.right, list)
     }
+    return list
+  }
+
+  function traversePreOrder(node, list) {
+    list.push(node.value)
+    if(node.left) {
+      traversePreOrder(node.left, list)
+    }
+    if(node.right) {
+      traversePreOrder(node.right, list)
+    }
+    return list
+  }
+
+  function traversePostOrder(node, list) {
+    if(node.left) {
+      traversePreOrder(node.left, list)
+    }
+    if(node.right) {
+      traversePreOrder(node.right, list)
+    }
+    list.push(node.value)
     return list
   }
   
@@ -161,6 +191,8 @@ class Node {
   JSON.stringify(traverse(tree.root));
   console.log(tree.lookup(20));
   console.log(tree.DFSInOrder())
+  console.log(tree.DFSPreOrder())
+  console.log(tree.DFSPostOrder())
   //     9
   //  4     20
   //1  6  15  170
