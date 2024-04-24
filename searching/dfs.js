@@ -132,6 +132,21 @@ class Node {
         }
       }
     }
+
+    DFSInOrder() {
+      return traverseInOrder(this.root, [])
+    }
+  }
+
+  function traverseInOrder(node, list) {
+    if(node.left) {
+      traverseInOrder(node.left, list)
+    }
+    list.push(node.value)
+    if(node.right) {
+      traverseInOrder(node.right, list)
+    }
+    return list
   }
   
   const tree = new BinarySearchTree();
@@ -142,9 +157,10 @@ class Node {
   tree.insert(170);
   tree.insert(15);
   tree.insert(1);
-  tree.remove(170);
+  //tree.remove(170);
   JSON.stringify(traverse(tree.root));
   console.log(tree.lookup(20));
+  console.log(tree.DFSInOrder())
   //     9
   //  4     20
   //1  6  15  170
